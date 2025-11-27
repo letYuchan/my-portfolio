@@ -1,4 +1,5 @@
-import OnboardingPage from "@/pages/onboarding/LandingPage";
+import HomePage from "@/pages/home/HomePage";
+import OnboardingPage from "@/pages/onboarding/OnboardingPage";
 import Layout from "@/shared/components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -7,7 +8,10 @@ const App = () => {
     {
       path: "/",
       element: <Layout />,
-      children: [{ index: true, element: <OnboardingPage /> }],
+      children: [
+        { index: true, element: <OnboardingPage /> },
+        { path: "home", element: <HomePage /> },
+      ],
     },
   ]);
   return <RouterProvider router={router} />;

@@ -11,9 +11,13 @@ import TypingText from "@/shared/components/TypingText";
 import SoftRectParticles from "@/shared/components/SoftRectParticles";
 import { PROJECT_ITEMS } from "@/pages/onboarding/model/onboarding.constants";
 import OnboardingFooter from "@/pages/onboarding/components/OnboardingFooter";
+import { useNavigate } from "react-router-dom";
 
 const OnboardingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
+  const [isClickMeButtonOpen, setIsClickMeButtonOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({
@@ -21,6 +25,29 @@ const OnboardingPage = () => {
       behavior: "instant",
     });
   }, []);
+
+  const handleClickMeBtnClick = () => {
+    setIsClickMeButtonOpen(true);
+    setTimeout(() => {
+      setIsClickMeButtonOpen(false);
+      navigate("/home");
+    }, 6000);
+  };
+
+  if (isClickMeButtonOpen) {
+    return (
+      <div className="w-full h-screen overflow-hidden bg-surface-primary">
+        <video
+          src="/videos/intro.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <main className="w-full min-h-screen flex flex-col justify-between items-center bg-surface-primary relative">
@@ -186,7 +213,7 @@ const OnboardingPage = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.85, y: -8 }}
           transition={{ duration: 0.25 }}
-          onClick={() => setIsKnowMeButtonOpen(true)}
+          onClick={handleClickMeBtnClick}
           className="
                     px-8 py-3 rounded-full 
                     bg-surface-secondary border border-line-accent 
