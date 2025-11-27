@@ -21,7 +21,7 @@ const CardSection = ({
 }: CardSectionProps) => {
   return (
     <div
-      className="w-full bg-surface-secondary border-line-primary px-4 py-6 border rounded-xl flex flex-col justify-start hover:border-line-accent hover:shadow-soft"
+      className="w-full bg-surface-secondary border-line-primary border-2 px-4 py-6 border rounded-xl flex flex-col justify-start hover:border-line-accent hover:shadow-soft"
       style={{ maxWidth: maxW, height }}
     >
       <h3

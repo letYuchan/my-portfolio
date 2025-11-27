@@ -10,6 +10,7 @@ import BlackHoleOrb from "@/pages/landing/components/ BlackHoleOrb";
 import TypingText from "@/shared/components/TypingText";
 import SoftRectParticles from "@/shared/components/SoftRectParticles";
 import { PROJECT_ITEMS } from "@/model/landing.constants";
+import LandingFooter from "@/pages/landing/components/LandingFooter";
 
 const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
@@ -110,7 +111,7 @@ const LandingPage = () => {
 
                   <div className="absolute left-1/2 -bottom-[67px] -translate-x-1/2 flex flex-col items-center gap-1">
                     <div className="w-px h-10 border-l border-dotted border-line-accent opacity-70" />
-                    <div className="w-3 h-3 rounded-full bg-accent-soft" />
+                    <div className="w-3 h-3 rounded-full bg-accent-strong shadow-md" />
                   </div>
                 </motion.div>
               ))}
@@ -125,7 +126,6 @@ const LandingPage = () => {
         <h2 className="font-title font-semibold text-4xl text-on-surface-primary text-center mb-40">
           Introduce my projects
         </h2>
-
         <ul className="grid grid-cols-3 grid-row-auto gap-10">
           {PROJECT_ITEMS.map((project, index) => (
             <motion.li
@@ -148,7 +148,7 @@ const LandingPage = () => {
                 description3={project.description3}
                 stack={project.stack}
                 maxW={450}
-                height={350}
+                height={380}
                 position="left"
               />
             </motion.li>
@@ -199,7 +199,7 @@ const LandingPage = () => {
         </motion.button>
         <Division />
       </section>
-
+      <LandingFooter />
       <SoftRectParticles count={44} />
     </main>
   );

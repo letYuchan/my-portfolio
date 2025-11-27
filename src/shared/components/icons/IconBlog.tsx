@@ -2,7 +2,7 @@ import Svg from "@/assets/svgs/blog.svg?react";
 const IconBlog = () => {
   return (
     <div>
-      <Svg className="size-40" />
+      <Svg className="size-10" />
     </div>
   );
 };
