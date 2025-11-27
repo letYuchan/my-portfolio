@@ -1,5 +1,5 @@
-import CardSection from "../../shared/components/CardSection";
-import MessageBox from "./components/MessageBox";
+import MessageBox from "@/pages/landing/components/MessageBox";
+import CardSection from "@/shared/components/CardSection";
 
 const LandingPage = () => {
   return (
@@ -19,7 +19,7 @@ const LandingPage = () => {
             <MessageBox text="Tenacity for development"></MessageBox>
           </li>
           <li className="mb-20">
-            <MessageBox text="Persistence for UI publishing"></MessageBox>
+            <MessageBox text="Meticulousness for UI publishing"></MessageBox>
           </li>
           <li className="mb-20">
             <MessageBox text="User-centric"></MessageBox>
@@ -31,7 +31,7 @@ const LandingPage = () => {
             <MessageBox text="Engineer thinking"></MessageBox>
           </li>
           <li className="mb-20">
-            <MessageBox text="Meticulousness and systematic collaboration"></MessageBox>
+            <MessageBox text="Systematic collaboration"></MessageBox>
           </li>
           <li className="mb-20">
             <MessageBox text="Responsibility for my work"></MessageBox>
