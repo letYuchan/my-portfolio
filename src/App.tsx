@@ -1,11 +1,15 @@
-function App() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <h1 className="text-3xl font-bold text-white">
-        Tailwind 3 + React 18 ✅
-      </h1>
-    </div>
-  );
-}
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./shared/components/Layout";
+import Landing from "./pages/Intro/components/Landing";
 
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [{ index: true, element: <Landing /> }],
+    },
+  ]);
+  return <RouterProvider router={router} />;
+};
 export default App;
