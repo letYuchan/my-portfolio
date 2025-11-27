@@ -1,5 +1,6 @@
 import MessageBox from "@/pages/landing/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
+import IconPerson from "@/shared/components/icons/IconPerson";
 
 const LandingPage = () => {
   return (
@@ -37,6 +38,7 @@ const LandingPage = () => {
             <MessageBox text="Responsibility for my work"></MessageBox>
           </li>
         </ul>
+        <IconPerson />
         <div className="h-1 w-full bg-line-primary my-52" />
       </section>
       {/* 프로젝트 소개 */}
