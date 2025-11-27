@@ -1,127 +1,155 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import MessageBox from "@/pages/landing/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
+import Division from "@/shared/components/Division";
 import IconPerson from "@/shared/components/icons/IconPerson";
+import { MESSAGE_ITEMS } from "@/model/data/landing.data";
+import { PROJECT_ITEMS } from "@/model/constants/landing.dat";
+import IconPlanet from "@/shared/components/icons/IconPlanent";
 
 const LandingPage = () => {
+  const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
+
   return (
     <main className="w-full min-h-screen flex flex-col justify-between items-center bg-surface-primary">
-      <h1 className="font-title font-extrabold text-5xl text-on-surface-accent my-52">
-        Welcome to My World
-      </h1>
+      <div className="flex flex-row justify-between items-center gap-2 my-52">
+        <h1 className="font-title font-extrabold text-5xl text-on-surface-accent ">
+          Welcome to My World
+        </h1>
+        <IconPlanet />
+      </div>
+
+      {/* 섹션 1: Introduce myself */}
       <section className="w-full max-w-7xl">
-        <h2 className="font-title font-semibold text-3xl text-on-surface-primary text-center mb-40">
+        <h2 className="font-title font-semibold text-4xl text-on-surface-primary text-center mb-16">
           Introduce myself
         </h2>
-        <ul>
-          <li className="mb-20">
-            <MessageBox text="Passion for self growth "></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Tenacity for development"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Meticulousness for UI publishing"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="User-centric"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Positiveness"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Engineer thinking"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Systematic collaboration"></MessageBox>
-          </li>
-          <li className="mb-20">
-            <MessageBox text="Responsibility for my work"></MessageBox>
-          </li>
-        </ul>
-        <IconPerson />
-        <div className="h-1 w-full bg-line-primary my-52" />
+
+        <div className="relative w-full mx-auto h-[500px] flex items-center justify-center">
+          <div className="flex flex-col items-center gap-10">
+            <AnimatePresence>
+              {!isKnowMeButtonOpen && (
+                <motion.button
+                  type="button"
+                  initial={{ opacity: 0, scale: 0.9, y: -8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.85, y: -8 }}
+                  transition={{ duration: 0.25 }}
+                  onClick={() => setIsKnowMeButtonOpen(true)}
+                  className="
+                    px-8 py-3 rounded-full 
+                    bg-surface-secondary border border-line-accent 
+                    text-on-surface-accent font-title font-semibold text-xl
+                    shadow-soft hover:shadow-strong
+                    transition-all duration-300
+                  "
+                >
+                  Know Me?
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+              {!isKnowMeButtonOpen && (
+                <motion.div
+                  key="icon"
+                  initial={{ opacity: 0, scale: 0.9, y: 4 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: 4 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex flex-col items-center gap-3"
+                >
+                  <IconPerson />
+                </motion.div>
+              )}
+
+              {isKnowMeButtonOpen && (
+                <motion.p
+                  key="label"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.25 }}
+                  className="font-title font-semibold text-on-surface-muted text-xl"
+                >
+                  This is me
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <AnimatePresence>
+            {isKnowMeButtonOpen &&
+              MESSAGE_ITEMS.map((item, index) => (
+                <motion.div
+                  key={item.text}
+                  initial={item.initial}
+                  animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.08 * index,
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 18,
+                  }}
+                  className={item.className}
+                >
+                  <MessageBox text={item.text} />
+
+                  <div className="absolute left-1/2 -bottom-[67px] -translate-x-1/2 flex flex-col items-center gap-1">
+                    <div className="w-px h-10 border-l border-dotted border-line-accent opacity-70" />
+                    <div className="w-3 h-3 rounded-full bg-accent-soft" />
+                  </div>
+                </motion.div>
+              ))}
+          </AnimatePresence>
+        </div>
+
+        <Division />
       </section>
-      {/* 프로젝트 소개 */}
+
+      {/* 섹션 2: 프로젝트 소개 */}
       <section className="w-full max-w-7xl">
-        <h2 className="font-title font-semibold text-3xl text-on-surface-primary text-center mb-40">
+        <h2 className="font-title font-semibold text-4xl text-on-surface-primary text-center mb-40">
           Introduce my projects
         </h2>
+
         <ul className="grid grid-cols-3 grid-row-auto gap-10">
-          <li>
-            <CardSection
-              title="First Project, Digital Card Blind Date Service"
-              description1="A blind dating service for college students"
-              description2="Recommended draw and random draw"
-              description3="Dating Chatbot Simulation"
-              stack="VanillaJS·CSS·HTML"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
-          <li>
-            <CardSection
-              title="Renewal Web Project of Date Service, SSUMPICK"
-              description1="Deploy as a real service"
-              description2="About 200 users per week"
-              description3="Personalization enhanced with similar animal figures and point colors"
-              stack="React·TailwindCSS·Zustand·Tanstack Query&Table"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
-          <li>
-            <CardSection
-              title="Serverless Technical Blog platform, Velogit"
-              description1="Provides powerful writing automation"
-              description2="A high-quality design system with 16 themes"
-              description3="Commenting is possible without a server"
-              stack="React·TailwindCSS·Zustand"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
-          <li>
-            <CardSection
-              title="Golf course control system, TRINITY Club"
-              description1="Responsible for linear course map"
-              description2="Real-time coordinates data handling, Using Own Design System"
-              description3="Connect player, caddy, hole, and golf cart data"
-              stack="React·TailwindCSS·Zustand·TanstackQuery"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
-          <li>
-            <CardSection
-              title="B2B automated quotation system, ETEVERS"
-              description1="Display complex quote status in UI"
-              description2="All UI publishing within the deadline"
-              description3="B2B responsive and complex UI design experience"
-              stack="React·TailwindCSS·Zustand·Tanstack Query&Table"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
-          <li>
-            <CardSection
-              title="Integrated route navigation solution, Ddareungi Map"
-              description1="Providing walk-bike-walk route for Seoul's public bicycles"
-              description2="Real-time voice navigation"
-              description3="design Webview-RN data flow"
-              stack="React Native·TailwindCSS·Context API·Zustand·Tanstack Query"
-              maxW={450}
-              height={350}
-              position="left"
-            />
-          </li>
+          {PROJECT_ITEMS.map((project, index) => (
+            <motion.li
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                type: "spring",
+                stiffness: 140,
+                damping: 18,
+              }}
+            >
+              <CardSection
+                title={project.title}
+                description1={project.description1}
+                description2={project.description2}
+                description3={project.description3}
+                stack={project.stack}
+                maxW={450}
+                height={350}
+                position="left"
+              />
+            </motion.li>
+          ))}
         </ul>
-        <div className="h-1 w-full bg-line-primary my-52" />
+
+        <Division />
       </section>
+
+      {/* 섹션3: Contact */}
+      <section className="w-full max-w-7xl"></section>
     </main>
   );
 };

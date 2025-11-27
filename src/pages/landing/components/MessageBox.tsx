@@ -6,7 +6,7 @@ const MessageBox = ({ text }: MessageBoxProps) => {
   return (
     <div className="relative inline-block">
       <div className="bg-surface-secondary border border-line-primary rounded-xl px-4 py-3">
-        <p className="font-title font-bold text-xl text-on-surface-accent">
+        <p className="font-title font-bold text-xl text-on-surface-primary">
           {text}
         </p>
       </div>
