@@ -4,12 +4,12 @@ import MessageBox from "@/pages/landing/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
 import Division from "@/shared/components/Division";
 import IconPerson from "@/shared/components/icons/IconPerson";
-import { MESSAGE_ITEMS } from "@/model/data/landing.data";
-import { PROJECT_ITEMS } from "@/model/constants/landing.dat";
+import { MESSAGE_ITEMS } from "@/model/landing.data";
 import IconPlanet from "@/shared/components/icons/IconPlanent";
 import BlackHoleOrb from "@/pages/landing/components/ BlackHoleOrb";
 import TypingText from "@/shared/components/TypingText";
 import SoftRectParticles from "@/shared/components/SoftRectParticles";
+import { PROJECT_ITEMS } from "@/model/landing.constants";
 
 const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
@@ -199,6 +199,7 @@ const LandingPage = () => {
         </motion.button>
         <Division />
       </section>
+
       <SoftRectParticles count={44} />
     </main>
   );
