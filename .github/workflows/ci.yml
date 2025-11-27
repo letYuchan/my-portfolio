@@ -1,35 +1,35 @@
-name: CI
+name: CI # 🔧 Continuous Integration 파이프라인 이름
 
 on:
   push:
     branches:
-      - main
-      - dev
+      - main # main 브랜치에 push될 때 실행
+      - dev # dev 브랜치에 push될 때도 실행
 
 jobs:
   test-and-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # GitHub이 제공하는 Ubuntu 최신 버전 VM 환경에서 실행
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # 📥 현재 저장소 코드를 CI 환경으로 체크아웃
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 9 # pnpm v9 설치
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: 20 # Node.js v20을 사용
+          cache: pnpm # pnpm 패키지 캐싱 활성화 → 빌드 속도 향상
 
       - name: Install deps
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile # 📦 lockfile 기반으로 의존성 설치 (변경 불가)
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm test # 🧪 테스트 실행 (테스트 실패 시 CI 전체 실패)
 
       - name: Build
-        run: pnpm build
+        run: pnpm build # 🏗️ 프로젝트 빌드 (테스트 통과 후)
