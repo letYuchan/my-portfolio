@@ -1,4 +1,5 @@
 import CardSection from "../../shared/components/CardSection";
+import MessageBox from "./components/MessageBox";
 
 const LandingPage = () => {
   return (
@@ -11,14 +12,29 @@ const LandingPage = () => {
           Introduce myself
         </h2>
         <ul>
-          <li className="font-normal text-xl text-on-surface-accent text-left mb-20">
-            Passion for learning and accumulated knowledge
+          <li className="mb-20">
+            <MessageBox text="Passion for self growth "></MessageBox>
           </li>
-          <li className="font-normal text-xl text-on-surface-accent text-right mb-20">
-            Projects completed with persistence
+          <li className="mb-20">
+            <MessageBox text="Tenacity for development"></MessageBox>
           </li>
-          <li className="font-normal text-xl text-on-surface-accent text-left mb-20">
-            Continuous challenges and growth
+          <li className="mb-20">
+            <MessageBox text="Persistence for UI publishing"></MessageBox>
+          </li>
+          <li className="mb-20">
+            <MessageBox text="User-centric"></MessageBox>
+          </li>
+          <li className="mb-20">
+            <MessageBox text="Positiveness"></MessageBox>
+          </li>
+          <li className="mb-20">
+            <MessageBox text="Engineer thinking"></MessageBox>
+          </li>
+          <li className="mb-20">
+            <MessageBox text="Meticulousness and systematic collaboration"></MessageBox>
+          </li>
+          <li className="mb-20">
+            <MessageBox text="Responsibility for my work"></MessageBox>
           </li>
         </ul>
         <div className="h-1 w-full bg-line-primary my-52" />
