@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MessageBox from "@/pages/landing/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
@@ -7,12 +7,22 @@ import IconPerson from "@/shared/components/icons/IconPerson";
 import { MESSAGE_ITEMS } from "@/model/data/landing.data";
 import { PROJECT_ITEMS } from "@/model/constants/landing.dat";
 import IconPlanet from "@/shared/components/icons/IconPlanent";
+import BlackHoleOrb from "@/pages/landing/components/ BlackHoleOrb";
+import TypingText from "@/shared/components/TypingText";
+import SoftRectParticles from "@/shared/components/SoftRectParticles";
 
 const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 220,
+      behavior: "instant",
+    });
+  }, []);
+
   return (
-    <main className="w-full min-h-screen flex flex-col justify-between items-center bg-surface-primary">
+    <main className="w-full min-h-screen flex flex-col justify-between items-center bg-surface-primary relative">
       <div className="flex flex-row justify-between items-center gap-2 my-52">
         <h1 className="font-title font-extrabold text-5xl text-on-surface-accent ">
           Welcome to My World
@@ -148,8 +158,48 @@ const LandingPage = () => {
         <Division />
       </section>
 
-      {/* 섹션3: Contact */}
-      <section className="w-full max-w-7xl"></section>
+      {/* 섹션3: Entry for my exhibition */}
+      <section className="relative w-full max-w-7xl flex flex-col items-center py-40">
+        {/* 텍스트는 위에 얹혀 있음 */}
+        <div className="h-[150px]">
+          <h2 className="relative z-10 font-title font-semibold text-4xl text-on-surface-primary text-center mb-16">
+            <TypingText
+              strings={[
+                "Ready to explore the world crafted along my journey as a front-end engineer?",
+              ]}
+            />
+          </h2>
+        </div>
+        {/* 블랙홀: 섹션 중앙에 고정, 배경처럼 */}
+        <BlackHoleOrb
+          size={500}
+          className="
+      pointer-events-none
+      absolute
+      left-1/2 top-1/2
+      -translate-x-1/2 -translate-y-1/2
+    "
+        />
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, scale: 0.9, y: -8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.85, y: -8 }}
+          transition={{ duration: 0.25 }}
+          onClick={() => setIsKnowMeButtonOpen(true)}
+          className="
+                    px-8 py-3 rounded-full 
+                    bg-surface-secondary border border-line-accent 
+                    text-on-surface-accent font-title font-semibold text-xl
+                    shadow-soft hover:shadow-strong
+                    transition-all duration-300
+                  "
+        >
+          Click Me!
+        </motion.button>
+        <Division />
+      </section>
+      <SoftRectParticles count={44} />
     </main>
   );
 };
