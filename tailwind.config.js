@@ -23,6 +23,9 @@ export default {
           accent: "rgba(168, 124, 255, 0.35)",
         },
       },
+      fontFamily: {
+        title: ["Orbitron", "serif"],
+      },
       boxShadow: {
         soft: "0 0 26px rgba(168,124,255,0.25)",
         strong: "0 10px 40px rgba(0,0,0,0.55)",
