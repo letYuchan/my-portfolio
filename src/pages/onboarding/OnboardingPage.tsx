@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import MessageBox from "@/pages/landing/components/MessageBox";
+import MessageBox from "@/pages/onboarding/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
 import Division from "@/shared/components/Division";
 import IconPerson from "@/shared/components/icons/IconPerson";
-import { MESSAGE_ITEMS } from "@/model/landing.data";
+import { MESSAGE_ITEMS } from "@/pages/onboarding/model/onboarding.data";
 import IconPlanet from "@/shared/components/icons/IconPlanent";
-import BlackHoleOrb from "@/pages/landing/components/ BlackHoleOrb";
+import BlackHoleOrb from "@/pages/onboarding/components/ BlackHoleOrb";
 import TypingText from "@/shared/components/TypingText";
 import SoftRectParticles from "@/shared/components/SoftRectParticles";
-import { PROJECT_ITEMS } from "@/model/landing.constants";
-import LandingFooter from "@/pages/landing/components/LandingFooter";
+import { PROJECT_ITEMS } from "@/pages/onboarding/model/onboarding.constants";
+import OnboardingFooter from "@/pages/onboarding/components/OnboardingFooter";
 
-const LandingPage = () => {
+const OnboardingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
 
   useEffect(() => {
@@ -199,10 +199,10 @@ const LandingPage = () => {
         </motion.button>
         <Division />
       </section>
-      <LandingFooter />
+      <OnboardingFooter />
       <SoftRectParticles count={44} />
     </main>
   );
 };
 
-export default LandingPage;
+export default OnboardingPage;
