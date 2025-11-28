@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import MessageBox from "@/pages/onboarding/components/MessageBox";
+import MessageBox from "@/pages/landing/components/MessageBox";
 import CardSection from "@/shared/components/CardSection";
 import Division from "@/shared/components/Division";
 import IconPerson from "@/shared/components/icons/IconPerson";
-import { MESSAGE_ITEMS } from "@/pages/onboarding/model/onboarding.data";
+import { MESSAGE_ITEMS } from "@/pages/landing/model/onboarding.data";
 import IconPlanet from "@/shared/components/icons/IconPlanent";
-import BlackHoleOrb from "@/pages/onboarding/components/ BlackHoleOrb";
+import BlackHoleOrb from "@/pages/landing/components/ BlackHoleOrb";
 import TypingText from "@/shared/components/TypingText";
 import SoftRectParticles from "@/shared/components/SoftRectParticles";
-import { PROJECT_ITEMS } from "@/pages/onboarding/model/onboarding.constants";
-import OnboardingFooter from "@/pages/onboarding/components/OnboardingFooter";
+import { PROJECT_ITEMS } from "@/pages/landing/model/onboarding.constants";
 import { useNavigate } from "react-router-dom";
+import SplitText from "@/shared/components/SplitText";
+import LandingFooter from "@/pages/landing/components/LandingFooter";
 
-const OnboardingPage = () => {
+const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
   const [isClickMeButtonOpen, setIsClickMeButtonOpen] = useState(false);
 
@@ -31,7 +32,7 @@ const OnboardingPage = () => {
     setTimeout(() => {
       setIsClickMeButtonOpen(false);
       navigate("/home");
-    }, 6000);
+    }, 5000);
   };
 
   if (isClickMeButtonOpen) {
@@ -48,13 +49,23 @@ const OnboardingPage = () => {
       </div>
     );
   }
-
   return (
     <main className="w-full min-h-screen flex flex-col justify-between items-center bg-surface-primary relative">
       <div className="flex flex-row justify-between items-center gap-2 my-52">
-        <h1 className="font-title font-extrabold text-5xl text-on-surface-accent ">
-          Welcome to My World
-        </h1>
+        <SplitText
+          text="Welcome to my world"
+          className="font-title font-extrabold text-5xl text-on-surface-accent"
+          delay={100}
+          duration={0.6}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          rootMargin="-100px"
+          textAlign="center"
+          onLetterAnimationComplete={() => {}}
+        />
         <IconPlanet />
       </div>
 
@@ -226,10 +237,10 @@ const OnboardingPage = () => {
         </motion.button>
         <Division />
       </section>
-      <OnboardingFooter />
+      <LandingFooter />
       <SoftRectParticles count={44} />
     </main>
   );
 };
 
-export default OnboardingPage;
+export default LandingPage;

@@ -1,5 +1,5 @@
 import HomePage from "@/pages/home/HomePage";
-import OnboardingPage from "@/pages/onboarding/OnboardingPage";
+import LandingPage from "@/pages/landing/LandingPage";
 import Layout from "@/shared/components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const App = () => {
       path: "/",
       element: <Layout />,
       children: [
-        { index: true, element: <OnboardingPage /> },
+        { index: true, element: <LandingPage /> },
         { path: "home", element: <HomePage /> },
       ],
     },
