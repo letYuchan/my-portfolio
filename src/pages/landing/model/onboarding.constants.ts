@@ -23,7 +23,7 @@ export const PROJECT_ITEMS = [
   },
   {
     title: "Golf course control system, TRINITY Club",
-    description1: "Responsible for linear course map",
+    description1: "Responsible for track mode",
     description2:
       "Real-time coordinates data handling, Using Own Design System",
     description3: "Connect player, caddy, hole, and golf cart data",
