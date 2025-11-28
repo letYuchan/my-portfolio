@@ -37,6 +37,13 @@ export const PROJECT_ITEMS = [
     stack: "React·TailwindCSS·Zustand·Tanstack Query&Table",
   },
   {
+    title: "B2B Cloud Control System, CLOODY",
+    description1: "Wrap it up in 10 days with a tight deadline",
+    description2: "All UI publishing within the deadline",
+    description3: "B2B responsive and complex UI design experience",
+    stack: "React·TailwindCSS·Zustand·Tanstack Table",
+  },
+  {
     title: "Integrated route navigation solution, Ddareungi Map",
     description1: "Providing walk-bike-walk route for Seoul's public bicycles",
     description2: "Real-time voice navigation",
