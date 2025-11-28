@@ -32,7 +32,7 @@ const LandingPage = () => {
     setTimeout(() => {
       setIsClickMeButtonOpen(false);
       navigate("/home");
-    }, 6000);
+    }, 5000);
   };
 
   if (isClickMeButtonOpen) {

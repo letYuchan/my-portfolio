@@ -505,6 +505,40 @@ class App {
     return itemIndex % this.baseItems.length;
   }
 
+  private getClickedItemIndex(clientX: number, clientY: number): number | null {
+    if (!this.medias.length || !this.baseItems.length) return null;
+    const canvas = this.renderer?.gl?.canvas as HTMLCanvasElement | undefined;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+
+    if (
+      clientX < rect.left ||
+      clientX > rect.right ||
+      clientY < rect.top ||
+      clientY > rect.bottom
+    ) {
+      return null;
+    }
+
+    const relativeX =
+      ((clientX - rect.left) / rect.width) * this.viewport.width -
+      this.viewport.width / 2;
+
+    let minDistance = Infinity;
+    let closestIndex: number | null = null;
+
+    this.medias.forEach((media) => {
+      const distance = Math.abs(relativeX - media.plane.position.x);
+      const withinBounds = distance <= media.plane.scale.x / 2;
+      if (withinBounds && distance < minDistance) {
+        minDistance = distance;
+        closestIndex = media.index % this.baseItems.length;
+      }
+    });
+
+    return closestIndex;
+  }
+
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
@@ -629,19 +663,35 @@ class App {
   onTouchUp(e: MouseEvent | TouchEvent) {
     // ⭐ 클릭 vs 드래그 구분
     let endX: number | null = null;
+    let endY: number | null = null;
     if ("changedTouches" in e) {
-      endX = e.changedTouches[0].clientX;
+      const touch = e.changedTouches[0];
+      endX = touch?.clientX ?? null;
+      endY = touch?.clientY ?? null;
     } else {
       endX = (e as MouseEvent).clientX;
+      endY = (e as MouseEvent).clientY;
     }
 
     const distance = Math.abs(this.start - (endX ?? this.start));
     const CLICK_THRESHOLD = 5;
 
     if (distance < CLICK_THRESHOLD && this.onItemClick) {
-      const index = this.getActiveIndex();
-      const item = this.baseItems[index];
-      this.onItemClick(item, index);
+      const clickedIndex =
+        endX !== null && endY !== null
+          ? this.getClickedItemIndex(endX, endY)
+          : null;
+      const index =
+        clickedIndex ?? (this.baseItems.length ? this.getActiveIndex() : null);
+      if (
+        index !== null &&
+        index >= 0 &&
+        index < this.baseItems.length &&
+        this.baseItems[index]
+      ) {
+        const item = this.baseItems[index];
+        this.onItemClick(item, index);
+      }
     }
 
     this.isDown = false;
