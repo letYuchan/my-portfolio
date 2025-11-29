@@ -13,6 +13,7 @@ import { PROJECT_ITEMS } from "@/pages/landing/model/onboarding.constants";
 import { useNavigate } from "react-router-dom";
 import SplitText from "@/shared/components/SplitText";
 import LandingFooter from "@/pages/landing/components/LandingFooter";
+import AnimationButton from "@/shared/components/icons/AnimationButton";
 
 const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
@@ -79,23 +80,10 @@ const LandingPage = () => {
           <div className="flex flex-col items-center gap-10">
             <AnimatePresence>
               {!isKnowMeButtonOpen && (
-                <motion.button
-                  type="button"
-                  initial={{ opacity: 0, scale: 0.9, y: -8 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.85, y: -8 }}
-                  transition={{ duration: 0.25 }}
+                <AnimationButton
                   onClick={() => setIsKnowMeButtonOpen(true)}
-                  className="
-                    px-8 py-3 rounded-full 
-                    bg-surface-secondary border border-line-accent 
-                    text-on-surface-accent font-title font-semibold text-xl
-                    shadow-soft hover:shadow-strong
-                    transition-all duration-300
-                  "
-                >
-                  Know Me?
-                </motion.button>
+                  title="Know Me"
+                />
               )}
             </AnimatePresence>
 
@@ -218,23 +206,7 @@ const LandingPage = () => {
       -translate-x-1/2 -translate-y-1/2
     "
         />
-        <motion.button
-          type="button"
-          initial={{ opacity: 0, scale: 0.9, y: -8 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.85, y: -8 }}
-          transition={{ duration: 0.25 }}
-          onClick={handleClickMeBtnClick}
-          className="
-                    px-8 py-3 rounded-full 
-                    bg-surface-secondary border border-line-accent 
-                    text-on-surface-accent font-title font-semibold text-xl
-                    shadow-soft hover:shadow-strong
-                    transition-all duration-300
-                  "
-        >
-          Click Me!
-        </motion.button>
+        <AnimationButton onClick={handleClickMeBtnClick} title="Click Me!" />
         <Division />
       </section>
       <LandingFooter />

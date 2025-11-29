@@ -50,7 +50,7 @@ const HomePage = () => {
 
         <div className="relative w-full h-[500px]">
           <CircularGallery
-            bend={3}
+            bend={2}
             textColor="#E7E4F5"
             borderRadius={0.05}
             scrollEase={0.02}
