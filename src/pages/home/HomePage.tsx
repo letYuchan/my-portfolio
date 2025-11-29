@@ -4,7 +4,7 @@ import background from "@/assets/imgs/homeBg.png";
 import CircularGallery from "@/pages/home/components/CircularGallery";
 import { projects } from "@/pages/home/model/home.data";
 import ProjectDetailModal from "@/pages/home/components/ProjectDetailOverlay";
-import AnimationButton from "@/shared/components/icons/AnimationButton";
+import AnimationButton from "@/shared/components/AnimationButton";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {

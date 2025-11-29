@@ -13,7 +13,7 @@ import { PROJECT_ITEMS } from "@/pages/landing/model/onboarding.constants";
 import { useNavigate } from "react-router-dom";
 import SplitText from "@/shared/components/SplitText";
 import LandingFooter from "@/pages/landing/components/LandingFooter";
-import AnimationButton from "@/shared/components/icons/AnimationButton";
+import AnimationButton from "@/shared/components/AnimationButton";
 
 const LandingPage = () => {
   const [isKnowMeButtonOpen, setIsKnowMeButtonOpen] = useState(false);
