@@ -4,12 +4,16 @@ import background from "@/assets/imgs/homeBg.png";
 import CircularGallery from "@/pages/home/components/CircularGallery";
 import { projects } from "@/pages/home/model/home.data";
 import ProjectDetailModal from "@/pages/home/components/ProjectDetailOverlay";
+import AnimationButton from "@/shared/components/icons/AnimationButton";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<
     number | null
   >(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -58,9 +62,11 @@ const HomePage = () => {
             onItemClick={handleItemClick}
           />
         </div>
+        <AnimationButton
+          onClick={() => navigate("/summary")}
+          title="Contact Me?"
+        />
       </section>
-      <button></button>
-
       {selectedProjectIndex !== null && (
         <ProjectDetailModal
           project={projects[selectedProjectIndex]}

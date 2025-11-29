@@ -186,7 +186,6 @@ const LandingPage = () => {
 
       {/* 섹션3: Entry for my exhibition */}
       <section className="relative w-full max-w-7xl flex flex-col items-center py-40">
-        {/* 텍스트는 위에 얹혀 있음 */}
         <div className="h-[150px]">
           <h2 className="relative z-10 font-title font-semibold text-4xl text-on-surface-primary text-center mb-16">
             <TypingText
@@ -196,7 +195,6 @@ const LandingPage = () => {
             />
           </h2>
         </div>
-        {/* 블랙홀: 섹션 중앙에 고정, 배경처럼 */}
         <BlackHoleOrb
           size={500}
           className="

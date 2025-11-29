@@ -1,5 +1,6 @@
 import HomePage from "@/pages/home/HomePage";
 import LandingPage from "@/pages/landing/LandingPage";
+import SummaryPage from "@/pages/summary/SummaryPage";
 import Layout from "@/shared/components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const App = () => {
       children: [
         { index: true, element: <LandingPage /> },
         { path: "home", element: <HomePage /> },
+        { path: "summary", element: <SummaryPage /> },
       ],
     },
   ]);
