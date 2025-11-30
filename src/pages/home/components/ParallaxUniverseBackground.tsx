@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
-import SoftRectParticles from "@/shared/components/SoftRectParticles";
 
 const ParallaxUniverseBackground = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -98,9 +97,6 @@ const ParallaxUniverseBackground = () => {
           ease: "easeInOut",
         }}
       />
-
-      {/* 부드러운 사각 파티클 (이것도 surface/accent 계열 안에서 떠다니는 느낌일 듯) */}
-      <SoftRectParticles count={60} />
     </div>
   );
 };

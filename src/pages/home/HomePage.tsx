@@ -1,11 +1,11 @@
 import NebulaLoader from "@/shared/components/NebulaLoader";
 import { useEffect, useMemo, useState } from "react";
-import background from "@/assets/imgs/homeBg.png";
 import CircularGallery from "@/pages/home/components/CircularGallery";
 import { projects } from "@/pages/home/model/home.data";
 import ProjectDetailModal from "@/pages/home/components/ProjectDetailOverlay";
 import AnimationButton from "@/shared/components/AnimationButton";
 import { useNavigate } from "react-router-dom";
+import ParallaxUniverseBackground from "@/pages/home/components/ParallaxUniverseBackground";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,11 +43,8 @@ const HomePage = () => {
   }
 
   return (
-    <main
-      className="w-full min-h-screen flex flex-col justify-center items-center relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <section className="w-full max-w-7xl px-4 flex flex-col justify-center items-center relative h-[600px]">
+    <main className="w-full min-h-screen flex flex-col justify-center items-center relative">
+      <section className="w-full max-w-7xl px-4 flex flex-col justify-center items-center relative h-[800px]">
         <h2 className="font-title font-semibold text-4xl text-on-surface-primary text-center mb-16">
           Choose my recent works
         </h2>
@@ -62,6 +59,22 @@ const HomePage = () => {
             onItemClick={handleItemClick}
           />
         </div>
+      </section>
+      <section
+        style={{ width: "100%", height: 2000 }}
+        className="flex flex-col justify-between items-center py-4 gap-40"
+      >
+        <p className="font-normal text-xl text-on-surface-muted">So...</p>
+        <p className="font-normal text-xl text-on-surface-muted">
+          Are you interested in me?
+        </p>
+        <p className="font-normal text-xl text-on-surface-muted">I always...</p>
+        <p className="font-normal text-xl text-on-surface-muted">
+          Ready To join your team!
+        </p>
+        <p className="font-normal text-xl text-on-surface-muted">
+          Do you want to...
+        </p>
         <AnimationButton
           onClick={() => navigate("/summary")}
           title="Contact Me?"
@@ -73,6 +86,7 @@ const HomePage = () => {
           onClose={() => setSelectedProjectIndex(null)}
         />
       )}
+      <ParallaxUniverseBackground />
     </main>
   );
 };
