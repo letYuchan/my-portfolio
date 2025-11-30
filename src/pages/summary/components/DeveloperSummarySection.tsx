@@ -27,7 +27,7 @@ const DeveloperSummarySection = () => {
           </div>
 
           {/* 오른쪽: 키워드/역할 스택 배지 */}
-          <div className="md:w-64 lg:w-72 shrink-0">
+          <div className="w-72 shrink-0">
             <p className="mb-3 text-[11px] uppercase tracking-[0.3em] text-on-surface-muted">
               FOCUS AREAS
             </p>
@@ -51,7 +51,6 @@ const DeveloperSummarySection = () => {
               Hover to slow · Click to explore
             </p>
           </div>
-
           <div className="w-full overflow-hidden">
             <LogoLoop
               logos={techLogos}

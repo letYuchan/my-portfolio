@@ -1,9 +1,13 @@
 import type { BookSectionId } from "@/pages/summary/model/summary.types";
+import IconChatGpt from "@/shared/components/icons/IconChatGpt";
+import IconCopilot from "@/shared/components/icons/IconCopilot";
 import IconCss from "@/shared/components/icons/IconCss";
 import IconDocker from "@/shared/components/icons/IconDocker";
+import IconFigma from "@/shared/components/icons/IconFigma";
 import IconGit from "@/shared/components/icons/IconGit";
 import IconHtml from "@/shared/components/icons/IconHtml";
 import IconNext from "@/shared/components/icons/IconNext";
+import IconNotion from "@/shared/components/icons/IconNotion";
 import IconPnpm from "@/shared/components/icons/IconPnpm";
 import IconReact from "@/shared/components/icons/IconReact";
 import IconReactNative from "@/shared/components/icons/IconReactNative";
@@ -55,11 +59,7 @@ export const stackNameList = [
   "Vite",
   "Docker",
   "pnpm",
-  "HTML",
-  "CSS",
-  "GitHub",
   "Zustand",
-  "Pnpm",
 ];
 
 export const techLogos = [
@@ -104,4 +104,62 @@ export const techLogos = [
     href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   { node: <IconVite />, title: "Vite", href: "https://vitejs.dev" },
+  { node: <IconNotion />, title: "Notion", href: "https://www.notion.so" },
+  { node: <IconChatGpt />, title: "ChatGpt", href: "https://chat.openai.com" },
+  {
+    node: <IconCopilot />,
+    title: "Copilot",
+    href: "https://copilot.github.com",
+  },
+  { node: <IconFigma />, title: "Figma", href: "https://www.figma.com" },
+];
+
+export const careerDataList = [
+  {
+    term: "2021.03 - contemporary",
+    title: "Seoul National University of Science and Technology",
+    content: "Bachelor's Degree in Computer Science and Engineering",
+  },
+  {
+    term: "2024.12 - 2025.03",
+    title: "Frontend Developer at SaaS Startup, Flowww",
+    content: "Golf track mode development, publishing for B2B services.",
+  },
+];
+
+export const courseDataList = [
+  { title: "Introduction to Programming" },
+  { title: "Data Structures" },
+  { title: "Descrete Mathematics" },
+  { title: "Database System" },
+  { title: "Operating System" },
+  { title: "Computer Networks" },
+  { title: "Software Engineering" },
+  { title: "Web Programming" },
+  { title: "System Programming" },
+  { title: "Data Communication" },
+  { title: "Open Source Software" },
+  { title: "Unix System" },
+  { title: "Digital Logic And System" },
+];
+
+export const awardDataList = [
+  {
+    year: 2024,
+    title: "Term project 2024 1st",
+    org: "Seoul National University of Science and Technology",
+  },
+  {
+    year: 2025,
+    title: "Top rank in startup clubs",
+    org: "Seoul National University of Science and Technology",
+  },
+];
+
+export const certificationDataList = [
+  {
+    year: 2022,
+    title: "워드프로세서",
+    org: "대한상공회의소",
+  },
 ];
