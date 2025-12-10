@@ -5,17 +5,22 @@ import Layout from "@/shared/components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+        children: [
+          { index: true, element: <LandingPage /> },
+          { path: "home", element: <HomePage /> },
+          { path: "summary", element: <SummaryPage /> },
+        ],
+      },
+    ],
     {
-      path: "/",
-      element: <Layout />,
-      children: [
-        { index: true, element: <LandingPage /> },
-        { path: "home", element: <HomePage /> },
-        { path: "summary", element: <SummaryPage /> },
-      ],
-    },
-  ]);
+      basename: "/my-portfolio",
+    }
+  );
   return <RouterProvider router={router} />;
 };
 export default App;

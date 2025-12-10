@@ -145,21 +145,31 @@ export const courseDataList = [
 
 export const awardDataList = [
   {
-    year: 2024,
-    title: "Term project 2024 1st",
-    org: "Seoul National University of Science and Technology",
+    year: 9999,
+    title: "test",
+    org: "test",
   },
-  {
-    year: 2025,
-    title: "Top rank in startup clubs",
-    org: "Seoul National University of Science and Technology",
-  },
+  // {
+  //   year: 2024,
+  //   title: "Term project 2024 1st",
+  //   org: "Seoul National University of Science and Technology",
+  // },
+  // {
+  //   year: 2025,
+  //   title: "Top rank in startup clubs",
+  //   org: "Seoul National University of Science and Technology",
+  // },
 ];
 
 export const certificationDataList = [
   {
-    year: 2022,
-    title: "워드프로세서",
-    org: "대한상공회의소",
+    year: 9999,
+    title: "test",
+    org: "test",
   },
+  // {
+  //   year: 2022,
+  //   title: "워드프로세서",
+  //   org: "대한상공회의소",
+  // },
 ];
